@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct Employee {
+    let id: UUID
+    var name: String?
+    var email: String?
+}
