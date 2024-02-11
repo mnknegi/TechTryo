@@ -40,6 +40,19 @@ The application interacts with the Core Data stack through the managed object co
 
 
 **Q:** What is persistentContainer?
-**Q:** What is Managed Context?
-**Q:** What is Managed Object?
-**Q:** Relations in core data?
+**A:** It is available as of iOS 10. It encapsulates the core components of the Core Data stack, including the managed object model, the persistent store coordinator, and the default managed object context. After Creation, NSPersistentContainer holdes the reference to the NSManagedObjectModel, NSPersistentStoreCoordinator, and NSManagedObjectContext.
+The `NSPersistentContainer` instance is initialized by invoking a convenience initializer, `init(name:)`, passing in the name of the data model. It doesn't requred any explicit instantiation of `NSManagedObjectModel`, `NSPersistentStoreCoordinator`, or `NSManagedObjectContext`. This is abstracted away by the NSPersistentContainer class.
+
+A Core Data stack without a persistent store isn't terribly useful. After initializing the persistent container, the persistent store is loaded by invoking the `loadPersistentStores(completionHandler:)` method. It accepts one parameter, a closure, which is invoked when loading of the persistent store is completed, successfully or unsuccessfully. The closure accepts two parameters, an instance of the NSPersistentStoreDescription class and an optional Error object.
+
+The NSPersistentStoreDescription class is another new addition to the Core Data framework. It encapsulates the information and configuration to add a persistent store to the persistent store coordinator. As the name of the class implies, it describes a persistent store.
+
+After creating an instance of the NSPersistentContainer class, you can easily access the managed object model and the persistent store coordinator through the managedObjectModel and persistentStoreCoordinator properties.
+
+```
+persistentContainer.managedObjectModel
+persistentContainer.persistentStoreCoordinator
+persistentContainer.viewContext
+```
+
+The class also provides easy access to a `viewContext` property, an instance of the `NSManagedObjectContext` class that operates on the main queue. As the name of the property implies, this managed object context is designed to be used in combination with the application's user interface.

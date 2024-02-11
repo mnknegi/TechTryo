@@ -81,12 +81,12 @@
 				85F756092B7697E800F17F64 /* models */,
 				85F756062B76974600F17F64 /* repository */,
 				85F756012B76971600F17F64 /* supporting-files */,
+				85F756142B77FE0E00F17F64 /* storage */,
 				85F755EA2B768D0D00F17F64 /* Main.storyboard */,
 				85F755F02B768D0E00F17F64 /* Assets.xcassets */,
 				85F755F22B768D0E00F17F64 /* LaunchScreen.storyboard */,
 				85F755F52B768D0E00F17F64 /* Info.plist */,
 				85F755ED2B768D0D00F17F64 /* core_data.xcdatamodeld */,
-				85F756142B77FE0E00F17F64 /* storage */,
 			);
 			path = "core-data";
 			sourceTree = "<group>";
