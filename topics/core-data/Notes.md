@@ -18,7 +18,11 @@
 
 
 **Q:** What is CoreData Stack?
-**A:** The Core Data stack refers to the set of services that work together to manage the lifecycle of Core Data objects (managed objects) in your application. The Core Data stack in Swift typically consists of three main components:
+**A:** 
+
+![Core Data Stack](https://github.com/mnknegi/TechTryo/assets/core-data-assets/core-data-stack-2.jpeg)
+
+The Core Data stack refers to the set of services that work together to manage the lifecycle of Core Data objects (managed objects) in your application. The Core Data stack in Swift typically consists of three main components:
 
 - `Managed Object Model`: This is a representation of your `data model`, defining the entities, their attributes, and the relationships between them. It is usually created using the Xcode Data Model Editor. The managed object model, an instance of the NSManagedObjectModel class, loads the data model and exposes it to the Core Data stack. Even though Core Data is not a database, you can compare the data model with the schema of a database. It describes the data of the application.
 
@@ -40,7 +44,11 @@ The application interacts with the Core Data stack through the managed object co
 
 
 **Q:** What is persistentContainer?
-**A:** It is available as of iOS 10. It encapsulates the core components of the Core Data stack, including the managed object model, the persistent store coordinator, and the default managed object context. After Creation, NSPersistentContainer holdes the reference to the NSManagedObjectModel, NSPersistentStoreCoordinator, and NSManagedObjectContext.
+**A:** 
+
+![Persistent Container](https://github.com/mnknegi/TechTryo/assets/core-data-assets/core-data-stack.jpeg)
+
+It is available as of iOS 10. It encapsulates the core components of the Core Data stack, including the managed object model, the persistent store coordinator, and the default managed object context. After Creation, NSPersistentContainer holdes the reference to the NSManagedObjectModel, NSPersistentStoreCoordinator, and NSManagedObjectContext.
 The `NSPersistentContainer` instance is initialized by invoking a convenience initializer, `init(name:)`, passing in the name of the data model. It doesn't requred any explicit instantiation of `NSManagedObjectModel`, `NSPersistentStoreCoordinator`, or `NSManagedObjectContext`. This is abstracted away by the NSPersistentContainer class.
 
 A Core Data stack without a persistent store isn't terribly useful. After initializing the persistent container, the persistent store is loaded by invoking the `loadPersistentStores(completionHandler:)` method. It accepts one parameter, a closure, which is invoked when loading of the persistent store is completed, successfully or unsuccessfully. The closure accepts two parameters, an instance of the NSPersistentStoreDescription class and an optional Error object.
